@@ -1,0 +1,11 @@
+{{#each model as |post|}}
+  <div class="page-header">
+    <h4>{{post.title}} by {{post.author}}</h4>
+    <p>{{post.text}}</p>
+    <img src={{post.image}}>
+    {{update-post post=post update="update"}}
+    <button class="btn btn-danger inline" {{action "delete" post}}>Delete</button>
+  </div>
+{{/each}}
+
+{{new-post save="save"}}

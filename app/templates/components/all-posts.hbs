@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-sm-8">
+    <h2>All Posts</h2>
+  </div>
+  <div class="col-sm-4">
+    <form>
+      <div class="form-group">
+        <label for='filter'>Filter By:</label>
+        {{#x-select class="form-control" value=filter id="filter" action='selectCategory'}}
+          {{#x-option value="all"}}All{{/x-option}}
+          {{#x-option value="scifi"}}Sci-Fi{{/x-option}}
+          {{#x-option value="fantasy"}}Fantasy{{/x-option}}
+          {{#x-option value="histfict"}}Historical Fiction{{/x-option}}
+          {{#x-option value="thriller"}}Thriller/Horror{{/x-option}}
+          {{#x-option value="romance"}}Romance{{/x-option}}
+          {{#x-option value="nonfiction"}}Non-Fiction{{/x-option}}
+        {{/x-select}}
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  {{#each model as |post|}}
+  {{log selectedCategory}}
+  {{log post.category}}
+    {{#if (or (eq selectedCategory post.category) (eq selectedCategory 'all'))}}
+      <div class="page-header">
+        <h4>{{post.title}} by {{post.author}}</h4>
+        <p>{{post.text}}</p>
+        <img src={{post.image}}>
+        <div class="row">
+          <div class="col-sm-10">
+            {{update-post post=post update="update"}}
+          </div>
+          <div class="col-sm-2">
+            <button class="btn btn-danger inline" {{action "delete" post}}>Delete</button>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  {{/each}}
+</div>
+
+{{new-post save="save"}}

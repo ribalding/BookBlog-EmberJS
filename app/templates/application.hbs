@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Book Blog</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+      <li>{{#link-to 'all-posts'}}All Posts{{/link-to}}</li>
+      <li>{{#link-to 'about'}}About{{/link-to}}</li>
+      <li>{{#link-to 'contact'}}Contact{{/link-to}}</li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>BOOK BLOG</h1>
+  {{outlet}}
+</div>

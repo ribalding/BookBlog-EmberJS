@@ -1,0 +1,27 @@
+body{
+  background-color: #12455F;
+  color: #eaeaea;
+}
+
+button{
+  color: black;
+}
+img {
+  max-width: 600px;
+  margin: 20px;
+  border-radius: 20px;
+  border: 2px solid #eaeaea;
+  opacity: .8;
+}
+
+img:hover{
+  opacity: 1;
+}
+
+.inline{
+  display: inline;
+}
+
+.page-header{
+  padding-bottom: 30px;
+}

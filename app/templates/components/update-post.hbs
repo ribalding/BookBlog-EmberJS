@@ -1,0 +1,41 @@
+{{#if updatePostForm}}
+  <h1>Update Post</h1>
+  <div>
+    <form>
+      <div class="form-group">
+        <label for="author">Author</label>
+        {{input value=authorUpdate placeholder=post.author id="authorUpdate" class="form-control"}}
+      </div>
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        {{input value=titleUpdate placeholder=post.title id="titleUpdate" class="form-control"}}
+      </div>
+
+      <div class="form-group">
+        <label for="text">Text</label>
+        {{textarea value=textUpdate placeholder=post.text id="textUpdate" class="form-control" cols="24" rows="10"}}
+      </div>
+
+      <div class="form-group">
+        <label for="image">Image URL</label>
+        {{input value=imageUpdate placeholder=post.image id="imageUpdate" class="form-control"}}
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        {{#x-select value=categoryUpdate}}
+          {{#x-option value="scifi"}}Sci-Fi{{/x-option}}
+          {{#x-option value="fantasy"}}Fantasy{{/x-option}}
+          {{#x-option value="histfict"}}Historical Fiction{{/x-option}}
+          {{#x-option value="thriller"}}Thriller/Horror{{/x-option}}
+          {{#x-option value="romance"}}Romance{{/x-option}}
+          {{#x-option value="nonfiction"}}Non-Fiction{{/x-option}}
+        {{/x-select}}
+      </div>
+      <button class="btn btn-success inline" {{action 'update' post}}>Save</button>
+    </form>
+  </div>
+{{else}}
+  <button class="btn btn-warning inline"{{action 'updatePostForm'}}>Update</button>
+{{/if}}

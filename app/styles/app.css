@@ -9,13 +9,16 @@ button{
 img {
   max-width: 600px;
   margin: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 2px solid #eaeaea;
   opacity: .8;
+  /*box-shadow: inset 20px 20px 20px #eaeaea,
+              inset -20px -20px 20px #eaeaea;*/
 }
 
 img:hover{
   opacity: 1;
+
 }
 
 .inline{
@@ -24,4 +27,8 @@ img:hover{
 
 .page-header{
   padding-bottom: 30px;
+}
+
+.container{
+  margin-top: 50px;
 }

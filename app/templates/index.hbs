@@ -1,16 +1,11 @@
+<h1>BOOK BLOG | Newest Posts</h1>
 {{#each model as |post|}}
   <div class="page-header">
     <img src={{post.image}}>
     <h4>{{post.title}} by {{post.author}}</h4>
     <p>{{post.text}}</p>
-    <div class="row">
-      <div class="col-sm-10">
-        {{update-post post=post update="update"}}
-      </div>
-      <div class="col-sm-2">
-        <button class="btn btn-danger inline" {{action "delete" post}}>Delete</button>
-      </div>
-    </div>
+
+    {{#link-to 'full-post' post.id}}View Full Post{{/link-to}}
   </div>
 {{/each}}
 

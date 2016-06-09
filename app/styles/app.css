@@ -1,6 +1,13 @@
 body{
   background-color: #12455F;
   color: #eaeaea;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 170%;
+}
+
+
+h1, h2, h3, h4{
+  font-family: 'Didact Gothic', sans-serif;
 }
 
 ul{
@@ -11,9 +18,9 @@ button{
   color: black;
 }
 img {
-  max-width: 100%;
+  max-width: 600px;
   margin: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 2px solid #eaeaea;
   opacity: .8;
   /*box-shadow: inset 20px 20px 20px #eaeaea,
@@ -30,7 +37,7 @@ img:hover{
 }
 
 .page-header{
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
 .container{

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-8">
-    <h2>All Posts</h2>
+    <h1>BOOK BLOG | All Posts</h1>
   </div>
   <div class="col-sm-4">
     <form>
@@ -23,27 +23,11 @@
   {{#each model.posts as |post|}}
     {{#if (or (eq selectedCategory post.category) (eq selectedCategory 'all'))}}
       <div class="page-header">
-        <h3>{{#link-to "full-post" post.id}}{{post.title}}{{/link-to}} by {{post.author}}</h3>
-        <p>{{post.text}}</p>
-        <div class="row picRow">
-          <div class="col-sm-6">
-            <img src={{post.image}}>
-          </div>
-          <div class="col-sm-6 commentColumn">
-            <div class="commentBox">
-              {{list-comments comments=post.comments deleteComment="deleteComment" updateComment="updateComment"}}
-            </div>
-          </div>
-        </div>
+        <img src={{post.image}}>
+        <h2>{{#link-to "full-post" post.id}}{{post.title}}{{/link-to}} by {{post.author}}</h2>
         <div class="row">
-          <div class="col-sm-1 col-sm-offset-1">
-            {{update-post post=post update="update"}}
-          </div>
-          <div class="col-sm-1">
-            <button class="btn btn-danger inline" {{action "delete" post}}>Delete</button>
-          </div>
-          <div class="col-sm-5">
-            {{new-comment post=post saveComment="saveComment"}}
+          <div class="col-sm-9">
+            <p>{{post.text}}</p>
           </div>
         </div>
       </div>

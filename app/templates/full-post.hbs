@@ -1,25 +1,21 @@
-<div class="page-header">
-  <h3>{{model.title}} by {{model.author}}</h3>
-  <p>{{model.text}}</p>
-  <div class="row picRow">
-    <div class="col-sm-6">
-      <img src={{model.image}}>
-    </div>
-    <div class="col-sm-6 commentColumn">
-      <div class="commentBox">
-        {{list-comments comments=model.comments deleteComment="deleteComment"}}
-      </div>
+<h1>{{model.title}}</h1>
+<h3>{{model.author}}</h3>
+<p>{{model.text}}</p>
+<div class="row picRow">
+  <div class="col-sm-6">
+    <img src={{model.image}}>
+  </div>
+  <div class="col-sm-6 commentColumn">
+    <div class="commentBox">
+      {{list-comments post=model comments=model.comments deleteComment="deleteComment" updateComment="updateComment" saveComment="saveComment"}}
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-1 col-sm-offset-1">
-      {{update-post post=model update="update"}}
-    </div>
-    <div class="col-sm-1">
-      <button class="btn btn-danger inline" {{action "delete" model}}>Delete</button>
-    </div>
-    <div class="col-sm-5">
-      {{new-comment model=model saveComment="saveComment"}}
-    </div>
+</div>
+<div class="row">
+  <div class="col-sm-1 col-sm-offset-1">
+    <button class="btn btn-danger inline" {{action "delete" model}}>Delete</button>
+  </div>
+  <div class="col-sm-5">
+    {{update-post post=model update="update"}}
   </div>
 </div>

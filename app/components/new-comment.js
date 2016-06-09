@@ -9,9 +9,10 @@ export default Ember.Component.extend({
         commentText: this.get("commentText") ? this.get("commentText") : "",
         post: this.get("post"),
       };
-      console.log(params);
-      console.log(params.post);
       this.sendAction('saveComment', params);
+      this.set("user_name", "");
+      this.set('commonText', "");
+      this.set('showNewComment', false);
     },
     show(){
       this.set("showNewComment", true);

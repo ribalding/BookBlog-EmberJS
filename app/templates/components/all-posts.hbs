@@ -23,7 +23,7 @@
   {{#each model.posts as |post|}}
     {{#if (or (eq selectedCategory post.category) (eq selectedCategory 'all'))}}
       <div class="page-header">
-        <h3>{{post.title}} by {{post.author}}</h3>
+        <h3>{{#link-to "full-post" post.id}}{{post.title}}{{/link-to}} by {{post.author}}</h3>
         <p>{{post.text}}</p>
         <div class="row picRow">
           <div class="col-sm-6">
@@ -31,7 +31,7 @@
           </div>
           <div class="col-sm-6 commentColumn">
             <div class="commentBox">
-              {{list-comments comments=post.comments}}
+              {{list-comments comments=post.comments deleteComment="deleteComment" updateComment="updateComment"}}
             </div>
           </div>
         </div>

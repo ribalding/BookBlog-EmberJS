@@ -32,7 +32,7 @@ export default Ember.Route.extend({
       this.set('selectedCategory', category);
       console.log(this.get('selectedCategory'));
     },
-    
+
     saveComment(params){
       var newComment = this.store.createRecord('comment', params);
       var post = params.post;
@@ -40,8 +40,21 @@ export default Ember.Route.extend({
       newComment.save().then(function() {
         return post.save();
       });
-      console.log(newComment);
-      console.log(post)
+      this.transitionTo('all-posts');
+    },
+
+    deleteComment(comment){
+      comment.destroyRecord();
+      this.transitionTo('all-posts');
+    },
+
+    updateComment(comment, params) {
+      Object.keys(params).forEach(function(key) {
+        if (params[key]!==undefined) {
+          comment.set(key,params[key]);
+        }
+      });
+      comment.save();
       this.transitionTo('all-posts');
     }
   }

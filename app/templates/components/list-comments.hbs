@@ -4,6 +4,22 @@
     {{#each comments as |comment|}}
       <div class="page-header">
         <li>{{comment.commentText}} -{{comment.user_name}}</li>
+        <button {{action 'deleteComment' comment}}>delete</button>
+        {{#if showUpdateComment}}
+          <form>
+            <div class="form-group">
+              <label for="user_name">Name</label>
+              {{input value=user_name id="user_name" class="form-control"}}
+            </div>
+            <div class="form-group">
+              <label for="commentText">Comment</label>
+              {{input value=commentText id="commentText" class="form-control"}}
+            </div>
+            <button {{action 'updateComment' comment}}>Submit</button>
+          </form>
+        {{else}}
+        <button {{action 'showEditForm' comment}}>update</button>
+        {{/if}}
       </div>
     {{/each}}
   </ul>

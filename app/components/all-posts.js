@@ -22,6 +22,14 @@ export default Ember.Component.extend({
 
     saveComment(params) {
       this.sendAction('saveComment', params);
+    },
+
+    deleteComment(params) {
+      this.sendAction('deleteComment', params);
+    },
+
+    updateComment(comment, params) {
+      this.sendAction('updateComment', comment, params);
     }
   }
 });

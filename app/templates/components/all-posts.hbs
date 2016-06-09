@@ -20,20 +20,30 @@
   </div>
 </div>
 <div class="row">
-  {{#each model as |post|}}
-  {{log selectedCategory}}
-  {{log post.category}}
+  {{#each model.posts as |post|}}
     {{#if (or (eq selectedCategory post.category) (eq selectedCategory 'all'))}}
       <div class="page-header">
-        <h4>{{post.title}} by {{post.author}}</h4>
+        <h3>{{post.title}} by {{post.author}}</h3>
         <p>{{post.text}}</p>
-        <img src={{post.image}}>
+        <div class="row picRow">
+          <div class="col-sm-6">
+            <img src={{post.image}}>
+          </div>
+          <div class="col-sm-6 commentColumn">
+            <div class="commentBox">
+              {{list-comments comments=post.comments}}
+            </div>
+          </div>
+        </div>
         <div class="row">
-          <div class="col-sm-10">
+          <div class="col-sm-1 col-sm-offset-1">
             {{update-post post=post update="update"}}
           </div>
-          <div class="col-sm-2">
+          <div class="col-sm-1">
             <button class="btn btn-danger inline" {{action "delete" post}}>Delete</button>
+          </div>
+          <div class="col-sm-5">
+            {{new-comment post=post saveComment="saveComment"}}
           </div>
         </div>
       </div>

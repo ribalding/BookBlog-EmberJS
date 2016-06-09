@@ -3,7 +3,10 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   selectedCategory: 'scifi',
   model(){
-    return this.store.findAll('post');
+    return Ember.RSVP.hash({
+      posts: this.store.findAll('post'),
+      comments: this.store.findAll('comment')
+    });
   },
   actions: {
     save(params) {
@@ -28,6 +31,18 @@ export default Ember.Route.extend({
     selectCategory(category, component){
       this.set('selectedCategory', category);
       console.log(this.get('selectedCategory'));
+    },
+    
+    saveComment(params){
+      var newComment = this.store.createRecord('comment', params);
+      var post = params.post;
+      post.get('comments').addObject(newComment);
+      newComment.save().then(function() {
+        return post.save();
+      });
+      console.log(newComment);
+      console.log(post)
+      this.transitionTo('all-posts');
     }
   }
 });

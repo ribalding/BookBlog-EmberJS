@@ -18,6 +18,10 @@ export default Ember.Component.extend({
     selectCategory(category, component){
       this.set('selectedCategory', category);
       console.log(this.get('selectedCategory'));
+    },
+
+    saveComment(params) {
+      this.sendAction('saveComment', params);
     }
   }
 });

@@ -1,0 +1,9 @@
+<h4>Comments</h4>
+
+  <ul>
+    {{#each comments as |comment|}}
+      <div class="page-header">
+        <li>{{comment.commentText}} -{{comment.user_name}}</li>
+      </div>
+    {{/each}}
+  </ul>
